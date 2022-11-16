@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { Actions, Scene, Router } from 'react-native-router-flux';
+
+import LoginView from './src/views/LoginView.js';
+import HomeView from './src/views/HomeView.js';
+
+const scenes = Actions.create(
+  <Scene key='root'>
+    <Scene key='login' initial component={LoginView} />
+    <Scene key='home' component={HomeView} />
+  </Scene>
+);
 
 export default class App extends Component {
   render() {
     return (
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>Hello world</Text>
-      </View>
+      <Router scenes={scenes} />
     );
   }
 }
