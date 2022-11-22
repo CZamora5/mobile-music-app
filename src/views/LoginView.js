@@ -12,7 +12,7 @@ export default class LoginView extends Component {
   }
 
   getLogin = () => {
-    let errors = [];
+    const errors = [];
 
     if (!this.state.username) {
       errors.push('Username can not be empty');
@@ -27,6 +27,7 @@ export default class LoginView extends Component {
     if (errors.length) {
       Alert.alert('Invalid login', errors.join('\n'));
     } else {
+      this.setState({ email: '', username: '' });
       Actions.home();
     };
   };

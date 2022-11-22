@@ -5,9 +5,14 @@ import LoginView from './src/views/LoginView.js';
 import HomeView from './src/views/HomeView.js';
 
 const scenes = Actions.create(
-  <Scene key='root'>
-    <Scene key='login' initial component={LoginView} />
-    <Scene key='home' component={HomeView} />
+  <Scene key="root">
+    <Scene key="login" initial component={LoginView} hideNavBar />
+    <Scene
+      key="home"
+      component={HomeView}
+      title="Home"
+      back={true}
+    />
   </Scene>
 );
 
